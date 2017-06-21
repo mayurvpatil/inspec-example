@@ -42,3 +42,13 @@ services["services"].each do |s|
 
   
 end
+
+#---- for windows----------------------
+describe file('C:\Windows') do
+  it { should be_directory }
+end
+
+describe service('Dnscache') do
+    it { should be_running }
+end
+#--------------------------------------

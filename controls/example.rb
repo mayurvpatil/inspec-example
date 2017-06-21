@@ -13,6 +13,7 @@ describe file('/etc/passwd') do
   it { should be_file }
 end
 
+
 # you add controls here
 control 'tmp-1.0' do                        # A unique ID for this control
   impact 0.7                                # The criticality, if this control fails.
@@ -42,3 +43,14 @@ services["services"].each do |s|
 
   
 end
+
+
+#---- for windows----------------------
+describe file('C:\Windows') do
+  it { should be_directory }
+end
+
+describe service('Dnscache') do
+    it { should be_running }
+end
+#--------------------------------------
