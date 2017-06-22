@@ -5,8 +5,8 @@ sample example for inspec
 
 ## Linux
 
-inspec exec https://github.com/tahirstamboli/inspec-example -t ssh://<user>@<host> --password '<password>' --format html >> test_result.html
+inspec exec https://github.com/tahirstamboli/inspec-example -t ssh://user@host --password 'password' --format html >> test_result.html
 
 ## Windows
 
-inspec exec https://github.com/tahirstamboli/inspec-example -t winrm://<user>@<host> --password '<password>' --format html >> test_result.html
+inspec exec https://github.com/tahirstamboli/inspec-example -t winrm://user@host --password 'password' --format html >> test_result.html
