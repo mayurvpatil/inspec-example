@@ -34,6 +34,13 @@ sudo apt-get install ruby2.2-dev
 
 gem environment
 ```
+## Build-Essential Package  
+
+build-essential is a package which contains stuff needed for building software. (make, gcc ..)
+```bash
+sudo apt-get install build-essential
+```
+
 ## Inspec Gem installation
 ```bash
 sudo gem install inspec
