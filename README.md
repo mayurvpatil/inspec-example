@@ -31,10 +31,14 @@ sudo apt-add-repository ppa:brightbox/ruby-ng
 sudo apt-get update
 sudo apt-get install ruby2.2
 sudo apt-get install ruby2.2-dev
+
+gem environment
 ```
 ## Inspec Gem installation
 ```bash
 sudo gem install inspec
+
+gem list
 ```
 
 
