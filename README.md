@@ -26,18 +26,17 @@ InSpec makes it easy to run your tests wherever you need. More options are found
 # Installation
 
 ## Ruby dependency
-
+```bash
 sudo apt-add-repository ppa:brightbox/ruby-ng
 sudo apt-get update
 sudo apt-get install ruby2.2
 sudo apt-get install ruby2.2-dev
-
+```
 ## Inspec Gem installation
-
+```bash
 sudo gem install inspec
+```
 
-# inspec-example
-sample example for inspec
 
 # How to run this automation code ?
 
