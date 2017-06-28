@@ -11,5 +11,6 @@ sudo gem install inspec
 
 inspec exec inspec-workshop -t winrm://${SPEC_USER}@${SPEC_HOST_NAME} --password "${SPEC_PASSWORD}" --format html >> report/results.html
 #inspec exec inspec-workshop --backend "winrm" --host "${SPEC_HOST_NAME}" --user "${SPEC_USER}" --password "${SPEC_PASSWORD}" --format html >> results.html
-inspec exec inspec-workshop -t winrm://${SPEC_USER}@${SPEC_HOST_NAME} --password "${SPEC_PASSWORD}" --format json >> report/results.json
+#inspec exec inspec-workshop -t winrm://${SPEC_USER}@${SPEC_HOST_NAME} --password "${SPEC_PASSWORD}" --format json >> report/results.json
+inspec exec inspec-workshop -t winrm://${SPEC_USER}@${SPEC_HOST_NAME} --password "${SPEC_PASSWORD}" --format json-rspec >> report/results.json
 
