@@ -33,6 +33,9 @@ end
 describe service('cron') do 
   it { should be_running }
 end
+describe crontab do
+  it { should be_running }
+end
 
 =begin
 services = yaml(content: inspec.profile.file('services.yml')).params
