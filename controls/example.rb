@@ -24,12 +24,8 @@ control 'tmp-1.0' do                        # A unique ID for this control
   end
 end
 
-describe package('mysql@5.7') do
-  it { should be_installed }
-end
-
-describe service('crond') do
-  it { should be_running}
+describe crond do 
+  is { should be_running }
 end
 
 =begin
