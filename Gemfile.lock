@@ -119,6 +119,7 @@ PLATFORMS
 
 DEPENDENCIES
   inspec
+  mixlib-shellout (~> 2.2.0)
 
 BUNDLED WITH
-   1.14.6
+   1.17.1

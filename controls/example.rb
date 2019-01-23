@@ -24,14 +24,15 @@ control 'tmp-1.0' do                        # A unique ID for this control
   end
 end
 
-describe package('mysql-client-5.5') do
+describe package('mysql@5.7') do
   it { should be_installed }
 end
 
-describe package('maven3') do
-  it { should be_installed }
+describe service('crond') do
+  it { should be_running}
 end
 
+=begin
 services = yaml(content: inspec.profile.file('services.yml')).params
 #puts "------------------------------------------------------"
 #puts services["services"]
@@ -41,10 +42,11 @@ services["services"].each do |s|
     it { should be_running }
   end
 
-  
+
 end
+=end
 
-
+=begin
 #---- for windows----------------------
 describe file('C:\Windows') do
   it { should be_directory }
@@ -54,3 +56,4 @@ describe service('Dnscache') do
     it { should be_running }
 end
 #--------------------------------------
+=end
