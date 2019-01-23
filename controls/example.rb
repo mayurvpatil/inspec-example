@@ -25,13 +25,13 @@ control 'tmp-1.0' do                        # A unique ID for this control
 end
 
 describe service('crontab') do 
-  is { should be_running }
+  it { should be_running }
 end
 describe service('crond') do 
-  is { should be_running }
+  it { should be_running }
 end
 describe service('cron') do 
-  is { should be_running }
+  it { should be_running }
 end
 
 =begin
