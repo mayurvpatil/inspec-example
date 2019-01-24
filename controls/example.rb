@@ -37,10 +37,7 @@ end
 
 services = yaml(content: inspec.profile.file('services.yml')).params
 services["services"].each do |s|
-  describe command('pgrep ' + s) do
-    its('stdout') { should eq "enabled" }
-  end
-  describe command('systemctl is-enabled ' + s) do
-    its('stdout') { should_not eq "" }
+  describe command('sudo systemctl show '+s+' --no-page | grep ActiveState | cut -d "=" -f2') do
+    its('stdout') { should eq "active" }
   end
 end
