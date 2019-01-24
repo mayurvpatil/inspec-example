@@ -13,3 +13,8 @@ services:
  - systemd-tmpfiles-setup #  Create Volatile Files and Directories
  - systemd-udevd # udev Kernel Device Manager
  - tuned # Dynamic System Tuning Daemon
+ - atd # Job spooling tools
+ - auditd # Security Auditing Service
+ - firewalld # firewalld - dynamic firewall daemon
+ - jexec # LSB: Supports the direct execution of binary formats.
+ - nessusagent # The Nessus Client Agent
