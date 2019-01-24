@@ -24,6 +24,8 @@ control 'tmp-1.0' do                        # A unique ID for this control
   end
 end
 
+=begin
+# Check for daemon services
 describe command('pgrep crond') do
   its('stdout') { should_not eq "" }
 end
@@ -31,29 +33,10 @@ end
 describe command('pgrep getty') do
   its('stdout') { should_not eq "" }
 end
+=end
 
-=begin
 services = yaml(content: inspec.profile.file('services.yml')).params
-#puts "------------------------------------------------------"
-#puts services["services"]
-#puts "------------------------------------------------------"
 services["services"].each do |s|
-  describe service(s) do
-    it { should be_running }
+  describe command('pgrep ' + s) do
+    its('stdout') { should_not eq "" }
   end
-
-
-end
-=end
-
-=begin
-#---- for windows----------------------
-describe file('C:\Windows') do
-  it { should be_directory }
-end
-
-describe service('Dnscache') do
-    it { should be_running }
-end
-#--------------------------------------
-=end

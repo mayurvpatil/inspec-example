@@ -1,4 +1,4 @@
 services: 
- - mysql
- - cron
+ - crond
+ - getty
  - docker
