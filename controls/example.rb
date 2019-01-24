@@ -40,3 +40,4 @@ services["services"].each do |s|
   describe command('pgrep ' + s) do
     its('stdout') { should_not eq "" }
   end
+end
