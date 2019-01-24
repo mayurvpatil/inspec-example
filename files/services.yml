@@ -8,3 +8,8 @@ services:
  - rsyslog # System Logging Service
  - serial-getty # Serial Getty on ttyS0
  - sshd # OpenSSH server daemon
+ - systemd-journald # Journal Service
+ - systemd-logind # Login Service
+ - systemd-tmpfiles-setup #  Create Volatile Files and Directories
+ - systemd-udevd # udev Kernel Device Manager
+ - tuned # Dynamic System Tuning Daemon
