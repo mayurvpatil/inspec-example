@@ -38,6 +38,9 @@ end
 services = yaml(content: inspec.profile.file('services.yml')).params
 services["services"].each do |s|
   describe command('sudo systemctl show '+s+' --no-page | grep ActiveState | cut -d "=" -f2') do
-    its('stdout') { should eq "active" }
+    its('stdout') { should eq "active\n" }
+  end
+  describe command('sudo systemctl show '+s+' --no-page | grep LoadState | cut -d "=" -f2') do
+    its('stdout') { should eq "loaded\n" }
   end
 end
