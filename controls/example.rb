@@ -35,7 +35,7 @@ describe command('pgrep getty') do
 end
 =end
 
-services = yaml(content: inspec.profile.file('services.yml')).params
+services = YAML.load_file(File.join(File.dirname(__FILE__), '../files/services.yml'))
 services["services"].each do |s|
   describe command('sudo systemctl show '+s+' --no-page | grep ActiveState | cut -d "=" -f2') do
     its('stdout') { should eq "active\n" }
