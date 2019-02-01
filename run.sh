@@ -72,7 +72,7 @@ do
             chmod 400 key/${SPEC_USER}_${SPEC_IP}.key
             fi
 
-            bundle install && inspec exec inspec-example -t ssh://${SPEC_USER}@${SPEC_IP} --key-files key/${SPEC_USER}_${SPEC_IP}.key --reporter json:./inspec_report.json html:./inspec_report.html #  bundle exec rake spec:"$HOST_ROLE" TITLE="${TITLE}"
+            bundle install && inspec exec . -t ssh://${SPEC_USER}@${SPEC_IP} --key-files key/${SPEC_USER}_${SPEC_IP}.key --reporter json:./inspec_report.json html:./inspec_report.html #  bundle exec rake spec:"$HOST_ROLE" TITLE="${TITLE}"
             testExit=$?
             echo "-------------"
             # echo ${TITLE}
