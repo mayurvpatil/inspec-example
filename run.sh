@@ -53,32 +53,32 @@ do
         export SPEC_PASSWORD=${ary[3]}
         export SPEC_HOST_AUTHENTICATION="$SPEC_AUTHENTICATION"
         export SPEC_HOST_NAME="$SPEC_IP"
-        export HOST_ROLE="$ROLE"
+        # export HOST_ROLE="$ROLE"
 
         replace=' '
         IFS='+' read -ra roleary <<< "$ROLE"
         for role in "${roleary[@]}"
         do
-            export ROLE=${role}
-            TITLE1=$(echo "${ROLE}" | sed "s/_/${replace}/")
-            TITLE2=$(echo "${TITLE1^^} REPORT" )
-            export TITLE=$TITLE2
+            # export ROLE=${role}
+            # TITLE1=$(echo "${ROLE}" | sed "s/_/${replace}/")
+            # TITLE2=$(echo "${TITLE1^^} REPORT" )
+            # export TITLE=$TITLE2
 
             if [ "${SPEC_AUTHENTICATION}" = "key" ]
             then
             mkdir "key"
             touch "key/${SPEC_USER}_${SPEC_IP}.key"
             echo -e "${SPEC_PASSWORD}" > "key/${SPEC_USER}_${SPEC_IP}.key"
-            chmod 600 key/${SPEC_USER}_${SPEC_IP}.key
+            chmod 400 key/${SPEC_USER}_${SPEC_IP}.key
             fi
 
-            bundle install && inspec exec inspec-example -t ssh://${SPEC_USER}@${SPEC_IP} --key-files key/${SPEC_USER}_${SPEC_IP}.key #  bundle exec rake spec:"$HOST_ROLE" TITLE="${TITLE}"
+            bundle install && inspec exec inspec-example -t ssh://${SPEC_USER}@${SPEC_IP} --key-files key/${SPEC_USER}_${SPEC_IP}.key --reporter json:./inspec_report.json html:./inspec_report.html #  bundle exec rake spec:"$HOST_ROLE" TITLE="${TITLE}"
             testExit=$?
             echo "-------------"
-            echo ${TITLE}
+            # echo ${TITLE}
             echo "-------------"
             echo "********************************************************************************************"
-            echo "* Report for this execution has been created in Reports folder as 'serverspec_report.html' *"
+            echo "* Report for this execution has been created in Reports folder as 'inspec_report.html' *"
             echo "********************************************************************************************"
 
            count_arr["${int}"]=$!
