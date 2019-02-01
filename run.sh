@@ -40,7 +40,8 @@ do
             chmod 400 key/${SPEC_USER}_${SPEC_IP}.key
             fi
 
-            bundle install && inspec exec . -t ssh://${SPEC_USER}@${SPEC_IP} --key-files key/${SPEC_USER}_${SPEC_IP}.key --format json-rspec >> reports/results.json && inspec exec . -t ssh://${SPEC_USER}@${SPEC_IP} --key-files key/${SPEC_USER}_${SPEC_IP}.key --format html >> reports/results.html #--reporter json:./inspec_report.json html:./inspec_report.html #  bundle exec rake spec:"$HOST_ROLE" TITLE="${TITLE}"
+            bundle install && inspec exec . -t ssh://${SPEC_USER}@${SPEC_IP} --key-files key/${SPEC_USER}_${SPEC_IP}.key --format json-rspec >> reports/results.json 
+            inspec exec . -t ssh://${SPEC_USER}@${SPEC_IP} --key-files key/${SPEC_USER}_${SPEC_IP}.key --format html >> reports/results.html 
             testExit=$?
             echo "-------------"
             # echo ${TITLE}
