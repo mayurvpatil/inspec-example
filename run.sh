@@ -55,10 +55,10 @@ do
         export SPEC_HOST_NAME="$SPEC_IP"
         # export HOST_ROLE="$ROLE"
 
-        replace=' '
-        IFS='+' read -ra roleary <<< "$ROLE"
-        for role in "${roleary[@]}"
-        do
+        # replace=' '
+        # IFS='+' read -ra roleary <<< "$ROLE"
+        # for role in "${roleary[@]}"
+        # do
             # export ROLE=${role}
             # TITLE1=$(echo "${ROLE}" | sed "s/_/${replace}/")
             # TITLE2=$(echo "${TITLE1^^} REPORT" )
@@ -81,23 +81,23 @@ do
             echo "* Report for this execution has been created in Reports folder as 'inspec_report.html' *"
             echo "********************************************************************************************"
 
-           count_arr["${int}"]=$!
-           int=$((int+1))
-        done
+        #    count_arr["${int}"]=$!
+        #    int=$((int+1))
+        # done
 
 done
 
-for ip_pid in "${count_arr[@]}"
-do
-	echo $ip_pid
-	count=`ps -eaf | grep $ip_pid | grep -v grep | wc -l`
+# for ip_pid in "${count_arr[@]}"
+# do
+# 	echo $ip_pid
+# 	count=`ps -eaf | grep $ip_pid | grep -v grep | wc -l`
 
-	while [ "$count" -gt 0 ]
-	do
-		sleep 5
-		count=`ps -eaf | grep $ip_pid | grep -v grep | wc -l`
-	done
-done
+# 	while [ "$count" -gt 0 ]
+# 	do
+# 		sleep 5
+# 		count=`ps -eaf | grep $ip_pid | grep -v grep | wc -l`
+# 	done
+# done
 exit ${testExit}
 
 
