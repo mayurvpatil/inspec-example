@@ -27,10 +27,6 @@ do
         export SPEC_HOST_NAME="$SPEC_IP"
         # export HOST_ROLE="$ROLE"
 
-        # replace=' '
-        # IFS='+' read -ra roleary <<< "$ROLE"
-        # for role in "${roleary[@]}"
-        # do
             # export ROLE=${role}
             # TITLE1=$(echo "${ROLE}" | sed "s/_/${replace}/")
             # TITLE2=$(echo "${TITLE1^^} REPORT" )
@@ -44,32 +40,17 @@ do
             chmod 400 key/${SPEC_USER}_${SPEC_IP}.key
             fi
 
-            bundle install && inspec exec . -t ssh://${SPEC_USER}@${SPEC_IP} --key-files key/${SPEC_USER}_${SPEC_IP}.key --format json-rspec >> reports/results.json && inspec exec . -t ssh://${SPEC_USER}@${SPEC_IP} --key-files key/${SPEC_USER}_${SPEC_IP}.key --format html >> report/results.html #--reporter json:./inspec_report.json html:./inspec_report.html #  bundle exec rake spec:"$HOST_ROLE" TITLE="${TITLE}"
+            bundle install && inspec exec . -t ssh://${SPEC_USER}@${SPEC_IP} --key-files key/${SPEC_USER}_${SPEC_IP}.key --format json-rspec >> reports/results.json && inspec exec . -t ssh://${SPEC_USER}@${SPEC_IP} --key-files key/${SPEC_USER}_${SPEC_IP}.key --format html >> reports/results.html #--reporter json:./inspec_report.json html:./inspec_report.html #  bundle exec rake spec:"$HOST_ROLE" TITLE="${TITLE}"
             testExit=$?
             echo "-------------"
             # echo ${TITLE}
             echo "-------------"
             echo "********************************************************************************************"
-            echo "* Report for this execution has been created in Reports folder as 'inspec_report.html' *"
+            echo "* Report for this execution has been created in Reports folder as 'results.html' *"
             echo "********************************************************************************************"
-
-        #    count_arr["${int}"]=$!
-        #    int=$((int+1))
-        # done
 
 done
 
-# for ip_pid in "${count_arr[@]}"
-# do
-# 	echo $ip_pid
-# 	count=`ps -eaf | grep $ip_pid | grep -v grep | wc -l`
-
-# 	while [ "$count" -gt 0 ]
-# 	do
-# 		sleep 5
-# 		count=`ps -eaf | grep $ip_pid | grep -v grep | wc -l`
-# 	done
-# done
 exit ${testExit}
 
 
