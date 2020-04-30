@@ -45,6 +45,8 @@ sudo apt-get install build-essential
 ```bash
 sudo gem install inspec
 
+sudo gem install inspec-bin
+
 gem list
 ```
 
