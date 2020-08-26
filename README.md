@@ -60,3 +60,36 @@ inspec exec https://github.com/tahirstamboli/inspec-example -t ssh://user@host -
 ## To Test Windows Instance
 
 inspec exec https://github.com/tahirstamboli/inspec-example -t winrm://user@host --password 'password' --format html >> test_result.html
+
+## Instructions to run with TestNow
+
+Test linux server with key
+
+Pre-script 
+
+```curl -sSL https://get.rvm.io -o rvm.sh
+cat rvm.sh | bash -s stable --rails
+               source /usr/local/rvm/scripts/rvm
+               rvm install ruby-2.5.7
+               rvm use ruby-2.5.7
+```
+
+Command to run 
+```
+bash run.sh
+```
+
+Post Script 
+```
+echo "Executing PostScript"
+```
+
+Output Directory
+```
+inspec-example/reports
+```
+
+report file 
+```
+summary.json
+```
